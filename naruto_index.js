@@ -160,7 +160,10 @@ exports.handler = skillBuilder
     FallbackHandler,
     SessionEndedRequestHandler,
   )
-
+  .addRequestInterceptors(LocalizationInterceptor)
+  .addErrorHandlers(ErrorHandler)
+  .withCustomUserAgent('sample/basic-fact/v2')
+  .lambda();
 // TODO: Replace this data with your own.
 // It is organized by language/locale.  You can safely ignore the locales you aren't using.
 // Update the name and messages to align with the theme of your skill
